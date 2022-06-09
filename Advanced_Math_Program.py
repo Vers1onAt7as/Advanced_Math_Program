@@ -10,7 +10,7 @@ class settings:
     set_objective = 3
     set_lives = 3
 
-class setValue:
+class setValue: 
     additionNum_1 = 0
     additionNum_2 = 0
     subtractionNum_1 = 0
@@ -32,31 +32,24 @@ def display_separator(icon):
 
 def operator_display():
     operator_list = ['1. Addition (+)', '2. Subtraction (-)', '3. Multiplication (*)', '4. Devision (/)']
-    print(operator_list[0])
-    print(operator_list[1])
-    print(operator_list[2])
-    print(operator_list[3])
+    for operator in operator_list:
+        print(operator)
     display_separator(' ')
 
 
 def difficulty_display():
-    difficulty_list = ['1. Easy :)', '2. Medium :|', '3. Hard >:(', '4. EXTREME \>_</'] # Easy: 0 to 10 | Medium: 10 to 25 | Hard: 25 to 50 | EXTREME: 100 to 500
+    difficulty_list = ['1. Easy :)', '2. Medium :|', '3. Hard >:(', '4. EXTREME \>_</']
     print('Select a difficulty: ')
     display_separator(' ')
-    print(difficulty_list[0])
-    print(difficulty_list[1])
-    print(difficulty_list[2])
-    print(difficulty_list[3])
+    for difficulty in difficulty_list:
+        print(difficulty)
     display_separator(' ')
     
 
 def gamemode_display():
-    gamemode_list = ['1. 10 Questions', '2. 25 Questions', '3. 50 Questions', '4. Rouge Mode (endless questions, one life)', '5. Custom Rules']
-    print(gamemode_list[0])
-    print(gamemode_list[1])
-    print(gamemode_list[2])
-    print(gamemode_list[3])
-    print(gamemode_list[4])
+    gamemode_list = ['1. 10 Questions', '2. 25 Questions', '3. 50 Questions', '4. Rouge Mode (endless questions, one life)', '5. Custom Rules [EXPERIMENTAL]']
+    for gamemode in gamemode_list:
+        print(gamemode)
     display_separator(' ')
 
 
@@ -90,8 +83,10 @@ Custom Rules [EXPERIMENTAL]:
 def retry_display(pass_code):
     display_separator(" ")
     while True:
+
         print('Continue? "yes" to retry. "no" to return back to main menu')
         playAgain = input('Enter your choice: ')
+
         if playAgain == 'yes' and pass_code == 1:
             select_addition()
         elif playAgain == 'yes' and pass_code == 2:
@@ -151,13 +146,13 @@ def custom_gamemode():
 
         while True:
             try:
-                userInput = int(input(''))
+                userGuess = int(input(''))
             except ValueError:
                 print('Invalid input')
             else:
                 break
 
-        if userInput == answer:
+        if userGuess == answer:
             display_separator(" ")
             print('CORRECT!')
             userScore += 1
@@ -231,14 +226,14 @@ def select_addition():
         
         while True:
             try:
-                userInput = int(input(''))
+                userGuess = int(input(''))
             except ValueError: 
                 print('Invalid input')
             else:
                 break
         
 
-        if int(userInput) == answer:
+        if userGuess == answer:
       
             display_separator(" ")
             print('CORRECT!')
@@ -248,7 +243,7 @@ def select_addition():
             print('Score:', userScore)
             display_separator(" ")
 
-        elif int(userInput) != answer:
+        elif userGuess != answer:
             display_separator(" ")
             print('INCORRECT!')
             print('Answer:', answer)
@@ -339,13 +334,13 @@ def select_subtraction():
         
         while True:
             try:
-                userInput = int(input(''))
+                userGuess = int(input(''))
             except ValueError:
                 print('Invalid input')
             else:
                 break
         
-        if userInput == answer:
+        if userGuess == answer:
             display_separator(" ")
             print('CORRECT!')
             userScore += 1
@@ -444,13 +439,13 @@ def select_multiplication():
         
         while True:
             try:
-                userInput = int(input(''))
+                userGuess = int(input(''))
             except ValueError: 
                 print('Invalid input')
             else:
                 break
         
-        if userInput == answer:
+        if userGuess == answer:
             display_separator(" ")
             print('CORRECT!')
             userScore += 1
@@ -548,13 +543,13 @@ def select_devision():
 
         while True:
             try:
-                userInput = int(input(''))
+                userGuess = int(input(''))
             except ValueError: 
                 print('Invalid input')
             else:
                 break
         
-        if userInput == answer:
+        if userGuess == answer:
             display_separator(" ")
             print('CORRECT!')
             userScore += 1
@@ -683,10 +678,8 @@ def main_display():
             clear()
             menu()
         elif userInput == 'help':
-
             help_display()
         else:
             print('Invalid input')
 
 main_display()
-
